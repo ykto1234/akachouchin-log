@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-// import { iframely } from '@iframely/embed.js';
-const iframely = require('@iframely/embed.js')
 
 @Component({
   selector: 'app-shop-card',
@@ -17,7 +15,6 @@ export class ShopCardComponent implements OnInit {
   constructor(private domSanitizer: DomSanitizer) {}
 
   ngOnInit(): void {
-    iframely.load();
     this.sanitizedHtml = this.domSanitizer.bypassSecurityTrustHtml(
       this.shopImageHtml
     );
