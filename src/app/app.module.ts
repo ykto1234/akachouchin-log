@@ -3,16 +3,20 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { UserHeaderComponent } from './pages/user-header/user-header.component';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire/compat';
+import { ShopCardComponent } from './components/shop-card/shop-card.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent, UserHomeComponent, UserHeaderComponent, ShopCardComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
