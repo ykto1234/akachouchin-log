@@ -12,6 +12,8 @@ export interface ShopInfo {
   upperPrice?: number;
   /** 評価点数 */
   valuationRates?: number;
+  /** 食べログURL */
+  tabelogUrl?: string;
   /** 県名 */
   prefectureName?: string;
   /** 更新日時 */

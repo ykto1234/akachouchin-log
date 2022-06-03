@@ -22,7 +22,6 @@ export class UserHomeComponent implements OnInit, OnDestroy {
     this.shopInfoStore.shops$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((shops) => {
-        console.log(shops);
         this.shops = shops;
       });
     this.shopInfoService.getShops();

@@ -9,20 +9,19 @@
       </h2>
 
       <p class="max-w-screen-md text-gray-500 md:text-lg text-center mx-auto">
-        全国の赤ちょうちん系居酒屋を紹介します
+        赤ちょうちん系居酒屋を紹介します
       </p>
     </div>
     <!-- text - end -->
 
     <div
-      class="grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-4 md:gap-6 xl:gap-8"
+      class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 md:gap-6 xl:gap-8"
     >
-      <ng-container *ngIf="shops.length > 0">
-        <app-shop-card [shopImageHtml]="shops[0].shopImageHtml"></app-shop-card>
+      <ng-container *ngFor="let shop of shops">
+        <app-shop-card [shop]="shop"></app-shop-card>
       </ng-container>
 
-      <!-- article - start -->
-      <div
+      <!-- <div
         class="flex flex-col md:flex-row items-center border rounded-lg overflow-hidden"
       >
         <a
@@ -62,9 +61,7 @@
           </div>
         </div>
       </div>
-      <!-- article - end -->
 
-      <!-- article - start -->
       <div
         class="flex flex-col md:flex-row items-center border rounded-lg overflow-hidden"
       >
@@ -105,9 +102,7 @@
           </div>
         </div>
       </div>
-      <!-- article - end -->
 
-      <!-- article - start -->
       <div
         class="flex flex-col md:flex-row items-center border rounded-lg overflow-hidden"
       >
@@ -147,8 +142,8 @@
             >
           </div>
         </div>
-      </div>
-      <!-- article - end -->
+      </div> -->
+
     </div>
   </div>
 </div>
