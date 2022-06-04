@@ -21,6 +21,14 @@
         >詳細
       </a>
     </div>
+    <div class="my-3 flex flex-wrap -m-1">
+      <ng-container *ngFor="let shopGenreId of shop?.shopGenreIds">
+        <span
+          class="m-1 bg-orange-200 hover:bg-orange-300 rounded-full px-2 font-bold text-sm leading-loose cursor-pointer"
+          >#{{ getShopGenreName(shopGenreId) }}
+        </span>
+      </ng-container>
+    </div>
   </div>
   <ng-container *ngIf="isDisplayImage">
     <div class="items-center" [innerHTML]="sanitizedHtml"></div>

@@ -16,8 +16,10 @@ export interface ShopInfo {
   tabelogUrl?: string;
   /** 県名 */
   prefectureName?: string;
+  /** 店舗ジャンルIDリスト */
+  shopGenreIds: string[];
   /** 更新日時 */
-  updatedAt?: boolean;
+  updatedAt?: Date;
   /** 作成日時 */
-  createdAt?: boolean;
+  createdAt?: Date;
 }
