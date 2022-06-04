@@ -1,0 +1,36 @@
+<div class="flex flex-col border rounded-lg overflow-hidden">
+  <div class="flex flex-col gap-0 p-4 lg:p-6">
+    <p class="text-gray-800 text-lg font-bold">
+      <span
+        class="hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+        >{{ shop?.shopName }}
+      </span>
+    </p>
+
+    <p class="text-gray-500">
+      {{ shop?.lowerPrice | currency: "JPY" }}～{{
+        shop?.upperPrice | currency: "JPY"
+      }}
+    </p>
+
+    <div>
+      <a
+        [href]="shop?.tabelogUrl"
+        target="_blank"
+        class="text-indigo-500 hover:text-indigo-600 active:text-indigo-700 font-semibold transition duration-100"
+        >詳細
+      </a>
+    </div>
+    <div class="my-3 flex flex-wrap -m-1">
+      <ng-container *ngFor="let shopGenreId of shop?.shopGenreIds">
+        <span
+          class="m-1 bg-orange-200 hover:bg-orange-300 rounded-full px-2 font-bold text-sm leading-loose cursor-pointer"
+          >#{{ getShopGenreName(shopGenreId) }}
+        </span>
+      </ng-container>
+    </div>
+  </div>
+  <ng-container *ngIf="isDisplayImage">
+    <div class="items-center" [innerHTML]="sanitizedHtml"></div>
+  </ng-container>
+</div>
