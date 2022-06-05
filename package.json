@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "write-env": "ts-node ./config/write-env.ts"
   },
   "private": true,
   "dependencies": {
