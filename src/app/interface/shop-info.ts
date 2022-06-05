@@ -14,10 +14,14 @@ export interface ShopInfo {
   valuationRates?: number;
   /** 食べログURL */
   tabelogUrl?: string;
-  /** 県名 */
-  prefectureName?: string;
   /** 店舗ジャンルIDリスト */
-  shopGenreIds: string[];
+  genreIds: string[];
+  /** 特徴IDリスト */
+  featureIds?: string[];
+  /** 都道府県コード */
+  prefectureCode: string;
+  /** 住所 */
+  address?: string;
   /** 更新日時 */
   updatedAt?: Date;
   /** 作成日時 */

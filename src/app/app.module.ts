@@ -8,9 +8,10 @@ import { UserHeaderComponent } from './pages/user-header/user-header.component';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ShopCardComponent } from './components/shop-card/shop-card.component';
+import { UserHeroComponent } from './pages/user-hero/user-hero.component';
 
 @NgModule({
-  declarations: [AppComponent, UserHomeComponent, UserHeaderComponent, ShopCardComponent],
+  declarations: [AppComponent, UserHomeComponent, UserHeaderComponent, ShopCardComponent, UserHeroComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

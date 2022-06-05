@@ -10,7 +10,7 @@ export class ShopCategoryMasterStore {
 
   constructor() {}
 
-  shops$ = this._shopCategoryMasters.asObservable();
+  shopCategoryMasters$ = this._shopCategoryMasters.asObservable();
 
   get shopCategoryMasters(): ShopCategoryMaster[] {
     return this._shopCategoryMasters.getValue();
