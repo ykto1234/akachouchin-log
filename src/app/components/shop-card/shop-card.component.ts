@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { ShopInfo } from 'src/app/interface/shop-info';
 import { InstagramDOMService } from 'src/app/service/instagram-dom.service';
+import { PrefectureMasterStore } from 'src/app/store/prefecture-master-store';
 import { ShopCategoryMasterStore } from 'src/app/store/shop-category-master-store';
 
 @Component({
@@ -14,14 +15,15 @@ export class ShopCardComponent implements OnInit, AfterViewInit {
   shop!: ShopInfo;
 
   @Input()
-  isDisplayImage = true;
+  isDisplayImage = false;
 
   sanitizedHtml: SafeHtml = '';
 
   constructor(
     private domSanitizer: DomSanitizer,
     private instagram: InstagramDOMService,
-    private readonly shopCategoryMasterStore: ShopCategoryMasterStore
+    private readonly shopCategoryMasterStore: ShopCategoryMasterStore,
+    private readonly prefectureMasterStore: PrefectureMasterStore
   ) {}
 
   ngOnInit(): void {
@@ -40,5 +42,12 @@ export class ShopCardComponent implements OnInit, AfterViewInit {
         (x) => x.genreId === shopGenreId
       );
     return shopCategoryMaster?.genreName ?? '';
+  }
+
+  getPrefectureName(prefectureCode: string) {
+    const prefectureMaster = this.prefectureMasterStore.prefectureMasters.find(
+      (x) => x.prefectureCode === prefectureCode
+    );
+    return prefectureMaster?.prefectureName ?? '';
   }
 }
