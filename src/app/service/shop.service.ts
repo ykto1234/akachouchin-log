@@ -50,7 +50,7 @@ export class ShopInfoService {
     });
   }
 
-  getNweShops(limit: number = 1000): void {
+  getNewShops(limit: number = 1000): void {
     const query = this.versionDoc.collection('shops', (ref: any) =>
       ref
         .where('isNewShop', '==', true)

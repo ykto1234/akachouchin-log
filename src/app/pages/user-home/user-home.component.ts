@@ -32,7 +32,7 @@ export class UserHomeComponent implements OnInit, OnDestroy {
       .subscribe((shops) => {
         this.newShops = shops;
       });
-    this.shopInfoService.getNweShops();
+    this.shopInfoService.getNewShops();
     this.shopCategoryMasterService.getShopCategoryMasters();
     this.prefectureMasterService.getPrefectureMasters();
     this.shopFeatureMasterService.getShopFeatureMasters();
