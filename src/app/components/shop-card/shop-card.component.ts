@@ -4,6 +4,7 @@ import { ShopInfo } from 'src/app/interface/shop-info';
 import { InstagramDOMService } from 'src/app/service/instagram-dom.service';
 import { PrefectureMasterStore } from 'src/app/store/prefecture-master-store';
 import { ShopCategoryMasterStore } from 'src/app/store/shop-category-master-store';
+import { ShopFeatureMasterStore } from 'src/app/store/shop-feature-master-store';
 
 @Component({
   selector: 'app-shop-card',
@@ -23,7 +24,8 @@ export class ShopCardComponent implements OnInit, AfterViewInit {
     private domSanitizer: DomSanitizer,
     private instagram: InstagramDOMService,
     private readonly shopCategoryMasterStore: ShopCategoryMasterStore,
-    private readonly prefectureMasterStore: PrefectureMasterStore
+    private readonly prefectureMasterStore: PrefectureMasterStore,
+    private readonly shopFeatureMasterStore: ShopFeatureMasterStore
   ) {}
 
   ngOnInit(): void {
@@ -49,5 +51,13 @@ export class ShopCardComponent implements OnInit, AfterViewInit {
       (x) => x.prefectureCode === prefectureCode
     );
     return prefectureMaster?.prefectureName ?? '';
+  }
+
+  getFeatureName(featureId: string) {
+    const prefectureMaster =
+      this.shopFeatureMasterStore.shopFeatureMasters.find(
+        (x) => x.featureId === featureId
+      );
+    return prefectureMaster?.featureName ?? '';
   }
 }

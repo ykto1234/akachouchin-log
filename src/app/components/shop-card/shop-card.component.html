@@ -30,8 +30,16 @@
       </ng-container>
       <ng-container *ngFor="let shopGenreId of shop?.genreIds">
         <span
+          *ngIf="shopGenreId"
           class="m-1 bg-orange-200 hover:bg-orange-300 rounded-full px-2 font-bold text-xs leading-loose cursor-pointer"
           >#{{ getShopGenreName(shopGenreId) }}
+        </span>
+      </ng-container>
+      <ng-container *ngFor="let featureId of shop?.featureIds">
+        <span
+          *ngIf="featureId"
+          class="m-1 bg-green-200 hover:bg-green-300 rounded-full px-2 font-bold text-xs leading-loose cursor-pointer"
+          >#{{ getFeatureName(featureId) }}
         </span>
       </ng-container>
     </div>
