@@ -9,9 +9,19 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { ShopCardComponent } from './components/shop-card/shop-card.component';
 import { UserHeroComponent } from './pages/user-hero/user-hero.component';
+import { SearchConditionPrefectureComponent } from './components/search-condition-prefecture/search-condition-prefecture.component';
+import { AreaShopListComponent } from './pages/area-shop-list/area-shop-list.component';
 
 @NgModule({
-  declarations: [AppComponent, UserHomeComponent, UserHeaderComponent, ShopCardComponent, UserHeroComponent],
+  declarations: [
+    AppComponent,
+    UserHomeComponent,
+    UserHeaderComponent,
+    ShopCardComponent,
+    UserHeroComponent,
+    SearchConditionPrefectureComponent,
+    AreaShopListComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

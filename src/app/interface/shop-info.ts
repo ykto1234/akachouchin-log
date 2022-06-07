@@ -22,6 +22,10 @@ export interface ShopInfo {
   prefectureCode: string;
   /** 住所 */
   address?: string;
+  /** エリアコード */
+  areaCode?: string;
+  /** 新着フラグ */
+  isNewShop: boolean;
   /** 更新日時 */
   updatedAt?: Date;
   /** 作成日時 */

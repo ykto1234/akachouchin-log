@@ -1,11 +1,13 @@
-/** 都道府県マスタ情報 */
-export interface PrefectureMaster {
+/** エリアマスタ情報 */
+export interface AreaMaster {
   /** ドキュメントID */
   id?: string;
   /** 都道府県コード */
   prefectureCode: string;
-  /** 都道府県名 */
-  prefectureName: string;
+  /** エリアコード */
+  areaCode: string;
+  /** エリア名 */
+  areaName: string;
   /** 更新日時 */
   updatedAt?: Date;
   /** 作成日時 */

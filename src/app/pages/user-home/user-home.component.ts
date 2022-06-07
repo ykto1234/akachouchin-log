@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { ShopInfo } from 'src/app/interface/shop-info';
+import { AreaMasterService } from 'src/app/service/area-master.service';
 import { PrefectureMasterService } from 'src/app/service/prefecture-master.service';
 import { ShopCategoryMasterService } from 'src/app/service/shop-category-master.service';
+import { ShopFeatureMasterService } from 'src/app/service/shop-feature-master.service';
 import { ShopInfoService } from 'src/app/service/shop.service';
 import { ShopInfoStore } from 'src/app/store/shop-store';
 
@@ -12,25 +14,29 @@ import { ShopInfoStore } from 'src/app/store/shop-store';
   styleUrls: ['./user-home.component.scss'],
 })
 export class UserHomeComponent implements OnInit, OnDestroy {
-  shops: ShopInfo[] = [];
+  newShops: ShopInfo[] = [];
   private _unsubscribeAll: Subject<any> = new Subject<any>();
 
   constructor(
     private readonly shopInfoStore: ShopInfoStore,
     private readonly shopInfoService: ShopInfoService,
     private readonly shopCategoryMasterService: ShopCategoryMasterService,
-    private readonly prefectureMasterService: PrefectureMasterService
+    private readonly prefectureMasterService: PrefectureMasterService,
+    private readonly shopFeatureMasterService: ShopFeatureMasterService,
+    private readonly areaMasterService: AreaMasterService
   ) {}
 
   ngOnInit(): void {
-    this.shopInfoStore.shops$
+    this.shopInfoStore.newShops$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((shops) => {
-        this.shops = shops;
+        this.newShops = shops;
       });
-    this.shopInfoService.getShops();
+    this.shopInfoService.getNewShops();
     this.shopCategoryMasterService.getShopCategoryMasters();
     this.prefectureMasterService.getPrefectureMasters();
+    this.shopFeatureMasterService.getShopFeatureMasters();
+    this.areaMasterService.getAreaMasters();
   }
 
   ngOnDestroy(): void {
