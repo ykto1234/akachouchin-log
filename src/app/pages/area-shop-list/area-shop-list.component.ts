@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { ShopInfo } from 'src/app/interface/shop-info';
 import { ShopInfoService } from 'src/app/service/shop.service';
 import { AreaMasterStore } from 'src/app/store/area-master-store';
+import { ShopAreaStore } from 'src/app/store/shop-area-store';
 import { ShopInfoStore } from 'src/app/store/shop-store';
 
 @Component({
@@ -11,14 +12,14 @@ import { ShopInfoStore } from 'src/app/store/shop-store';
   styleUrls: ['./area-shop-list.component.scss'],
 })
 export class AreaShopListComponent implements OnInit {
-  shops: ShopInfo[] = this.shopInfoStore.areaShops;
+  shops$ = this.shopAreaStore.shopAreaInfo$;
 
   areaName: string = '';
 
   constructor(
     private _route: ActivatedRoute,
     private readonly shopInfoService: ShopInfoService,
-    private readonly shopInfoStore: ShopInfoStore,
+    private readonly shopAreaStore: ShopAreaStore,
     private readonly areaMasterStore: AreaMasterStore
   ) {}
 
