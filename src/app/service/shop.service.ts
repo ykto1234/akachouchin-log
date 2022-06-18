@@ -4,6 +4,7 @@ import { cloneDeep } from 'lodash-es';
 import { environment } from 'src/environments/environment';
 import { ShopInfo } from '../interface/shop-info';
 import { ShopAreaStore } from '../store/shop-area-store';
+import { ShopGenreStore } from '../store/shop-genre-store';
 import { ShopInfoStore } from '../store/shop-store';
 
 @Injectable({
@@ -16,7 +17,8 @@ export class ShopInfoService {
   constructor(
     private afsCompact: AngularFirestore,
     private shopInfoStore: ShopInfoStore,
-    private readonly shopAreaStore: ShopAreaStore
+    private readonly shopAreaStore: ShopAreaStore,
+    private readonly shopGenreStore: ShopGenreStore
   ) {}
 
   getShops(limit: number = 1000): void {
@@ -49,6 +51,24 @@ export class ShopInfoService {
         return shop;
       });
       this.shopAreaStore.update(cloneDeep(shops));
+    });
+  }
+
+  getShopsByGenreId(genreId: string, limit: number = 1000): void {
+    const query = this.versionDoc.collection('shops', (ref: any) =>
+      ref
+        .where('genreIds', 'array-contains', genreId)
+        .orderBy('valuationRates', 'desc')
+        .limit(limit)
+    );
+    query.get().subscribe((querySnapshot) => {
+      const shops = querySnapshot.docs.map((doc) => {
+        const id = doc.id;
+        const data: any = doc.data();
+        const shop: ShopInfo = { id: id, ...data };
+        return shop;
+      });
+      this.shopGenreStore.update(cloneDeep(shops));
     });
   }
 

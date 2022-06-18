@@ -11,6 +11,8 @@ import { AreaShopListComponent } from './pages/area-shop-list/area-shop-list.com
 import { UserHeaderComponent } from './pages/user-header/user-header.component';
 import { UserHeroComponent } from './pages/user-hero/user-hero.component';
 import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { SearchConditionCategoryComponent } from './components/search-condition-category/search-condition-category.component';
+import { GenreShopListComponent } from './pages/genre-shop-list/genre-shop-list.component';
 
 
 @NgModule({
@@ -22,6 +24,8 @@ import { UserHomeComponent } from './pages/user-home/user-home.component';
     UserHeroComponent,
     SearchConditionPrefectureComponent,
     AreaShopListComponent,
+    SearchConditionCategoryComponent,
+    GenreShopListComponent,
   ],
   imports: [
     BrowserModule,

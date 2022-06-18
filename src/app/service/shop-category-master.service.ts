@@ -17,18 +17,28 @@ export class ShopCategoryMasterService {
     private shopCategoryMasterStore: ShopCategoryMasterStore
   ) {}
 
-  getShopCategoryMasters(limit: number = 1000): void {
+  async getShopCategoryMasters(
+    limit: number = 1000
+  ): Promise<ShopCategoryMaster[]> {
     const query = this.versionDoc.collection('shopCategoryMaster', (ref: any) =>
       ref.limit(limit)
     );
-    query.get().subscribe((querySnapshot) => {
-      const shops = querySnapshot.docs.map((doc) => {
+    const snapShots = await query.get();
+    if (!snapShots) {
+      return [];
+    }
+    let shopCategoryMasters: ShopCategoryMaster[] = [];
+    await snapShots.forEach((snapShot) => {
+      shopCategoryMasters = snapShot.docs.map((doc) => {
         const id = doc.id;
         const data: any = doc.data();
         const shopCategoryMaster: ShopCategoryMaster = { id: id, ...data };
         return shopCategoryMaster;
       });
-      this.shopCategoryMasterStore.shopCategoryMasters = cloneDeep(shops);
     });
+
+    this.shopCategoryMasterStore.shopCategoryMasters =
+      cloneDeep(shopCategoryMasters);
+    return shopCategoryMasters;
   }
 }
