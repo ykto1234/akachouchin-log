@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ShopInfo } from 'src/app/interface/shop-info';
 import { ShopInfoService } from 'src/app/service/shop.service';
 import { AreaMasterStore } from 'src/app/store/area-master-store';
 import { ShopAreaStore } from 'src/app/store/shop-area-store';
-import { ShopInfoStore } from 'src/app/store/shop-store';
 
 @Component({
   selector: 'app-area-shop-list',

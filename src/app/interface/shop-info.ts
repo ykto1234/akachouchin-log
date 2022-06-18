@@ -10,6 +10,8 @@ export interface ShopInfo {
   lowerPrice?: number;
   /** 価格（上限） */
   upperPrice?: number;
+  /** 生中価格 */
+  beerMiddlePrice?: number;
   /** 評価点数 */
   valuationRates?: number;
   /** 食べログURL */

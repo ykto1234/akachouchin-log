@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { faBeer } from '@fortawesome/free-solid-svg-icons';
 import { ShopInfo } from 'src/app/interface/shop-info';
 import { InstagramDOMService } from 'src/app/service/instagram-dom.service';
 import { PrefectureMasterStore } from 'src/app/store/prefecture-master-store';
 import { ShopCategoryMasterStore } from 'src/app/store/shop-category-master-store';
 import { ShopFeatureMasterStore } from 'src/app/store/shop-feature-master-store';
-
 @Component({
   selector: 'app-shop-card',
   templateUrl: './shop-card.component.html',
@@ -19,6 +19,8 @@ export class ShopCardComponent implements OnInit, AfterViewInit {
   isDisplayImage = false;
 
   sanitizedHtml: SafeHtml = '';
+
+  faBeer = faBeer;
 
   constructor(
     private domSanitizer: DomSanitizer,
