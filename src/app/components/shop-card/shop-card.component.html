@@ -6,21 +6,27 @@
       class="text-gray-800 text-lg font-bold"
     >
       <span
-        class="hover:text-indigo-500 active:text-indigo-600 transition duration-100"
+        class="underline hover:text-indigo-500 active:text-indigo-600 transition duration-100"
         >{{ shop?.shopName }}
       </span>
     </a>
 
-    <p class="text-xs text-gray-400">
+    <p class="text-xs text-gray-400 mb-1">
       {{ shop?.address }}
     </p>
 
-    <p class="text-gray-500">
+    <p class="text-xs text-gray-500">
       {{ shop?.lowerPrice | currency: "JPY" }}～{{
         shop?.upperPrice | currency: "JPY"
       }}
     </p>
 
+    <div *ngIf="shop?.beerMiddlePrice">
+      <fa-icon [icon]="faBeer" class="text-yellow-600"></fa-icon>
+      <span class="text-xs text-gray-500">
+        {{ shop?.beerMiddlePrice | currency: "JPY" }}
+      </span>
+    </div>
     <div class="my-1 flex flex-wrap -m-1">
       <ng-container *ngIf="shop?.prefectureCode">
         <span

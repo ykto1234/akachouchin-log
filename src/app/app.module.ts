@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
+import { AngularFireModule } from '@angular/fire/compat';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserHomeComponent } from './pages/user-home/user-home.component';
-import { UserHeaderComponent } from './pages/user-header/user-header.component';
-import { environment } from 'src/environments/environment';
-import { AngularFireModule } from '@angular/fire/compat';
-import { ShopCardComponent } from './components/shop-card/shop-card.component';
-import { UserHeroComponent } from './pages/user-hero/user-hero.component';
 import { SearchConditionPrefectureComponent } from './components/search-condition-prefecture/search-condition-prefecture.component';
+import { ShopCardComponent } from './components/shop-card/shop-card.component';
 import { AreaShopListComponent } from './pages/area-shop-list/area-shop-list.component';
+import { UserHeaderComponent } from './pages/user-header/user-header.component';
+import { UserHeroComponent } from './pages/user-hero/user-hero.component';
+import { UserHomeComponent } from './pages/user-home/user-home.component';
+import { SearchConditionCategoryComponent } from './components/search-condition-category/search-condition-category.component';
+import { GenreShopListComponent } from './pages/genre-shop-list/genre-shop-list.component';
+
 
 @NgModule({
   declarations: [
@@ -21,11 +24,14 @@ import { AreaShopListComponent } from './pages/area-shop-list/area-shop-list.com
     UserHeroComponent,
     SearchConditionPrefectureComponent,
     AreaShopListComponent,
+    SearchConditionCategoryComponent,
+    GenreShopListComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
